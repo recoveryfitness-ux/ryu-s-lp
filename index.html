@@ -188,7 +188,7 @@
 
     /* ─── HERO ─── */
     .hero {
-      background: linear-gradient(150deg, rgba(255,255,255,0.72) 0%, rgba(253,246,240,0.58) 50%, rgba(245,229,224,0.5) 100%), url('./images/lp-hero-portrait.png') center 50%/cover no-repeat;
+      background: linear-gradient(to right, rgba(255,255,255,0.08) 0%, rgba(253,246,240,0.72) 42%, rgba(253,246,240,0.94) 100%), url('./images/lp-hero-landscape.png') left center/cover no-repeat;
       color: var(--navy);
       padding: 72px 24px 80px;
       text-align: center;
@@ -1471,8 +1471,12 @@
     @media (max-width: 600px) {
       .sp-br { display: inline; }
 
-      /* HERO ── 縦長画像：顔が上部にあるため上寄りに表示 */
-      .hero { background-position: center 40%; }
+      /* HERO ── 横長画像：左（顔）寄せ、右手は画面外 */
+      .hero {
+        background:
+          linear-gradient(to right, rgba(255,255,255,0.08) 0%, rgba(253,246,240,0.72) 42%, rgba(253,246,240,0.94) 100%),
+          url('./images/lp-hero-landscape.png') -120px center / auto 130% no-repeat;
+      }
       .hero h1 {
         font-size: 26px; line-height: 1.4;
         letter-spacing: -.01em;
@@ -2321,13 +2325,13 @@
         </div>
         <div class="price-menu-body">
           <p class="price-menu-desc">カウンセリング・トレーニング・整体・リカバリーコンディショニングの統合プログラム。本気で一生モノの体を手に入れたい方へ。<em>— 正しいリカバリーの知識は、一生の財産になります。 —</em></p>
-          <p class="price-menu-amount">¥7040<small>〜/回</small></p>
+          <p class="price-menu-amount">¥7480<small>〜/回</small></p>
         </div>
         <div class="price-menu-detail" id="detail-total" hidden>
           <div style="text-align:center; margin-bottom:20px; padding:14px 16px; border:2px solid #dc2626; border-radius:10px; background:#fff5f5;">
             <p style="color:#dc2626; font-size:13px; font-weight:900; letter-spacing:.08em; margin-bottom:8px;">秋のからだ『ふわッと』軽快スタートキャンペーン｜〜9/30まで・先着10名 〜</p>
             <p style="color:#dc2626; font-size:15px; font-weight:900; line-height:1.6; margin-bottom:6px;">
-              ＼ 3大キャンペーン ／<br>
+              ＼ 3大特典 ／<br>
               入会金 <span style="font-size:18px;">¥55000</span> → <span style="font-size:20px;">0円</span>　／　登録手数料 <span style="font-size:18px;">¥5500</span> → <span style="font-size:20px;">0円</span>
             </p>
             <p style="color:#2c1b3e; font-size:13px; font-weight:800; margin-top:6px;">
