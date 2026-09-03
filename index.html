@@ -3410,9 +3410,22 @@
       return null;
     }
 
+    /* RSSキャッシュ未反映の最新記事を先頭に手動補完 */
+    var LATEST_INJECT = {
+      title: '「8時間寝ているのに疲れが取れない」——それ、回復機能の低下かもしれません',
+      link:  'https://note.com/kori_ryuji_ryus/n/n3788e31db161',
+      pubDate: '2026-09-03 00:00:00',
+      description: ''
+    };
+
     fetch(API_URL)
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        if (!data.items) data.items = [];
+        /* RSS未反映なら先頭に挿入 */
+        if (!data.items.length || data.items[0].link.indexOf('n3788e31db161') === -1) {
+          data.items.unshift(LATEST_INJECT);
+        }
         if (!data.items || data.items.length === 0) { grid.innerHTML = ''; return; }
 
         /* 最新記事バナー */
