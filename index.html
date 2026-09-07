@@ -2382,7 +2382,7 @@
             </div>
           </div>
           <p class="price-note">
-            オプション：深層ストレッチ4回/月 ¥12000（税込）／ 深層ほぐし4回/月 ¥8000（税込）<br>
+            オプション：深層ストレッチ4回/月 ¥12000（税込）・8回/月 ¥24000（税込）／ 深層ほぐし4回/月 ¥8000（税込）・8回/月 ¥16000（税込）<br>
             都度利用：トータルリカバリー ¥12000（税込）/回 ／ 深層ストレッチ ¥4000（税込）/回 ／ 深層ほぐし ¥3000（税込）/回<br>
             休会費：¥2200/月 ／ 変更手数料：¥2200/回<br>
             ※コース回数は同時予約可 ／ キャンセルは2時間前まで可能 ／ 入会金・登録手数料別途<br>
@@ -3411,6 +3411,7 @@
       { key: '「疲れたまま眠る」が続くと',    file: 'note-44.png' },
       { key: '整体・マッサージを何年続けても', file: 'note-45.png' },
       { key: '8時間寝ているのに疲れが取れない', file: 'note-46.png' },
+      { key: '40代から急に太りやすくなった',    file: 'note-47.png' },
     ];
 
     function findLocalThumb(title) {
@@ -3424,10 +3425,10 @@
 
     /* RSSキャッシュ未反映の最新記事を先頭に手動補完 */
     var LATEST_INJECT = {
-      title: '「8時間寝ているのに疲れが取れない」——それ、回復機能の低下かもしれません',
-      link:  'https://note.com/kori_ryuji_ryus/n/n3788e31db161',
-      pubDate: '2026-09-03 00:00:00',
-      description: ''
+      title: '40代から急に太りやすくなったのは怠けているからじゃない',
+      link:  'https://note.com/kori_ryuji_ryus/n/n6e0a0a15ed94',
+      pubDate: '2026-09-07 00:00:00',
+      description: '40代以降の体重増加は意志の問題ではなく、女性ホルモン低下による血管機能の減退が原因。末梢血流の不足が細胞への酸素供給を低下させ、脂肪燃焼効率を著しく減らすメカニズムについて解説。'
     };
 
     fetch(API_URL)
@@ -3435,7 +3436,7 @@
       .then(function (data) {
         if (!data.items) data.items = [];
         /* RSS未反映なら先頭に挿入 */
-        if (!data.items.length || data.items[0].link.indexOf('n3788e31db161') === -1) {
+        if (!data.items.length || data.items[0].link.indexOf('n6e0a0a15ed94') === -1) {
           data.items.unshift(LATEST_INJECT);
         }
         if (!data.items || data.items.length === 0) { grid.innerHTML = ''; return; }
