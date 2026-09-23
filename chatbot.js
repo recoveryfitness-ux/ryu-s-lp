@@ -8,7 +8,7 @@
      https://aistudio.google.com/app/apikey
   ========================================================= */
 
-  const API_KEY = 'AQ.Ab8RN6KVMtZKNwyh-C_N-SrZxo185BD2WSjx9HgwMRLMKeM2gQ';
+  const API_KEY = 'YOUR_GEMINI_API_KEY'; // ローカルのみで本物のキーに差し替えること（GitHubにはコミットしない）
   const API_URL =
     'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent';
 
