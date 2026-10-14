@@ -1,6 +1,5 @@
 (function () {
   'use strict';
-
   /* =========================================================
      RYU-S AI チャットアシスタント
      Google Gemini API（無料枠）を使用
@@ -8,9 +7,7 @@
      https://aistudio.google.com/app/apikey
   ========================================================= */
 
-  const API_KEY = 'YOUR_GEMINI_API_KEY'; // ローカルのみで本物のキーに差し替えること（GitHubにはコミットしない）
-  const API_URL =
-    'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent';
+  const API_URL = 'https://ryu-s-chatbot.ryu-s.workers.dev';
 
   /* ── LP 知識ベース（システムプロンプト）── */
   const SYSTEM_INSTRUCTION = [
@@ -60,10 +57,9 @@
     '  休会費: ¥2,200/月、プラン変更手数料: ¥2,200/回',
     '  通常入会金: ¥55,000、登録手数料: ¥5,500',
     '',
-    '【現在のキャンペーン（〜2026年9月30日まで・先着10名・残り5名）】',
+    '【現在のキャンペーン（〜2026年10月31日（土）まで）】',
     '  入会金¥55,000 → 0円、登録手数料¥5,500 → 0円',
     '  月会費 永久15%OFF（全プラン対象）',
-    '  ※無料体験は9/30まで。10月以降は有料体験予定。',
     '',
     '【キャンセル・運営ルール】',
     '  キャンセル・変更: 2時間前までであれば無料（マイページから24時間手続き可）',
@@ -230,7 +226,7 @@
         '<textarea id="ryus-chat-inp" placeholder="質問を入力してください…" rows="1"></textarea>' +
         '<button id="ryus-chat-send" aria-label="送信">&#9658;</button>' +
       '</div>' +
-      '<div id="ryus-chat-note">RYU-S のLP情報をもとに回答します</div>' +
+      '<div id="ryus-chat-note">AI回答の為、誤った回答が発生する可能性があります。</div>' +
     '</div>';
   document.body.appendChild(wrap);
 
@@ -282,21 +278,23 @@
     if (el) el.remove();
   }
 
-  /* ── Gemini API 呼び出し ── */
+  /* ── Groq API 呼び出し ── */
   function callGemini(userText) {
-    history.push({ role: 'user', parts: [{ text: userText }] });
+    history.push({ role: 'user', content: userText });
+
+    var messages = [{ role: 'system', content: SYSTEM_INSTRUCTION }].concat(history);
 
     var body = JSON.stringify({
-      system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
-      contents: history,
-      generationConfig: { maxOutputTokens: 800, temperature: 0.3 }
+      model: 'qwen/qwen3.8-27b',
+      messages: messages,
+      max_tokens: 800,
+      temperature: 0.3
     });
 
     return fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-goog-api-key': API_KEY
       },
       body: body
     })
@@ -305,14 +303,12 @@
       return res.json();
     })
     .then(function (data) {
-      var reply = (data.candidates &&
-                   data.candidates[0] &&
-                   data.candidates[0].content &&
-                   data.candidates[0].content.parts &&
-                   data.candidates[0].content.parts[0] &&
-                   data.candidates[0].content.parts[0].text)
+      var reply = (data.choices &&
+                   data.choices[0] &&
+                   data.choices[0].message &&
+                   data.choices[0].message.content)
                  || 'うまく回答できませんでした。恐れ入りますが直接お電話ください：042-847-9898';
-      history.push({ role: 'model', parts: [{ text: reply }] });
+      history.push({ role: 'assistant', content: reply });
       return reply;
     });
   }
