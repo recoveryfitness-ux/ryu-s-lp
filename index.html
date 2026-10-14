@@ -1471,11 +1471,16 @@
     @media (max-width: 600px) {
       .sp-br { display: inline; }
 
-      /* HERO ── 横長画像：左（顔）寄せ、右手は画面外 */
+      /* HERO ── 縦長画像：テキスト可読性を優先した均一オーバーレイ */
       .hero {
         background:
-          linear-gradient(to right, rgba(255,255,255,0.08) 0%, rgba(253,246,240,0.72) 42%, rgba(253,246,240,0.94) 100%),
-          url('./images/lp-hero-landscape.png') -120px center / auto 130% no-repeat;
+          linear-gradient(to bottom,
+            rgba(253,246,240,.92) 0%,
+            rgba(253,246,240,.72) 25%,
+            rgba(253,246,240,.55) 50%,
+            rgba(253,246,240,.72) 75%,
+            rgba(253,246,240,.92) 100%),
+          url('./images/lp-hero-portrait.png') center 30% / cover no-repeat;
       }
       .hero h1 {
         font-size: 26px; line-height: 1.4;
