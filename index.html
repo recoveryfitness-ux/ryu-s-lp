@@ -2640,6 +2640,18 @@
 
       <li class="info-item">
         <button class="info-head" type="button" aria-expanded="false">
+          <span class="info-date">2026.10.21</span>
+          <span class="info-tag is-event">CAMPAIGN</span>
+          <span class="info-headline">入会キャンペーン　残り4名</span>
+          <span class="info-toggle" aria-hidden="true">▼</span>
+        </button>
+        <div class="info-body" hidden>
+          <p class="info-desc">入会金・事務手数料が0円！（60,500円分）さらに会費の永久15％割引をしています。<br>期間限定10/31（土）までの特別キャンペーンです。<br>キャンペーン終了前に、まずは無料体験でお試しください。</p>
+          <a href="#form" class="info-link">無料体験を予約する →</a>
+        </div>
+      </li>
+      <li class="info-item">
+        <button class="info-head" type="button" aria-expanded="false">
           <span class="info-date">2026.10.01</span>
           <span class="info-tag is-event">CAMPAIGN</span>
           <span class="info-headline">秋のからだ「ふわッと」軽快スタートキャンペーン</span>
@@ -3428,6 +3440,7 @@
       { key: '40代から急に太りやすくなった',    file: 'note-47.png' },
       { key: '冷え・むくみの根本', file: 'note-48.png' },
       { key: '巡りを止めてはいけない', file: 'note-49.png' },
+      { key: '40代からの成長ホルモン革命', file: 'note-50.png' },
     ];
 
     function findLocalThumb(title) {
@@ -3441,10 +3454,10 @@
 
     /* RSSキャッシュ未反映の最新記事を先頭に手動補完 */
     var LATEST_INJECT = {
-      title: '巡りを止めてはいけない——「停滞が老化を加速する」現代医学が明らかにした循環の科学',
-      link:  'https://note.com/kori_ryuji_ryus/n/na688f9e7cac3',
-      pubDate: '2026-10-10 00:00:00',
-      description: '「冷え・むくみ・疲れは体質」は誤解です。eNOS活性の低下による末梢血管収縮、静脈還流障害、リンパ流の停滞——この連鎖が老化を加速させます。VRC®がeNOSを再活性化するメカニズムを解説します。'
+      title: '40代からの成長ホルモン革命——「睡眠中の自己修復システム」を最大化する方法',
+      link:  'https://note.com/kori_ryuji_ryus/n/n6dd3c536696b',
+      pubDate: '2026-10-17 00:00:00',
+      description: '成長ホルモンは40代以降も睡眠中のノンレム睡眠時に最大分泌されます。末梢循環不全・HPA軸過活性化・内臓脂肪蓄積によって抑制されるメカニズムと、加圧トレーニング×仙骨整体で分泌を最大化するアプローチを解説します。'
     };
 
     fetch(API_URL)
@@ -3452,7 +3465,7 @@
       .then(function (data) {
         if (!data.items) data.items = [];
         /* RSS未反映なら先頭に挿入 */
-        if (!data.items.length || data.items[0].link.indexOf('na688f9e7cac3') === -1) {
+        if (!data.items.length || data.items[0].link.indexOf('n6dd3c536696b') === -1) {
           data.items.unshift(LATEST_INJECT);
         }
         if (!data.items || data.items.length === 0) { grid.innerHTML = ''; return; }
