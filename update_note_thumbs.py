@@ -8,7 +8,10 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
+
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 # ---- パス設定 ----
 SCRIPT_DIR   = Path(__file__).parent
@@ -51,17 +54,21 @@ def get_processed_sources(existing: dict, html: str) -> set:
 
 def update_thumbmap(html: str, new_entries: list) -> str:
     """thumbMap の末尾エントリの後ろに新エントリを挿入"""
-    last = re.search(r"(\{ key: '[^']+',\s*file: 'note-\d+\.png' \})\s*\];", html)
-    if not last:
-        print("thumbMap の末尾が見つかりません")
+    map_start = html.find("var thumbMap = [")
+    if map_start == -1:
+        print("thumbMap が見つかりません")
+        return html
+
+    close_idx = html.find("\n    ];", map_start)
+    if close_idx == -1:
+        print("thumbMap の閉じ括弧が見つかりません")
         return html
 
     insert_text = ""
     for kw, fname in new_entries:
         insert_text += f"\n      {{ key: '{kw}', file: '{fname}' }},"
 
-    new_html = html[:last.end(1)] + "," + insert_text + "\n    ];" + html[last.end():]
-    return new_html
+    return html[:close_idx] + insert_text + html[close_idx:]
 
 
 def git_push(message: str):
@@ -71,8 +78,11 @@ def git_push(message: str):
         ["git", "push"],
     ]
     for cmd in cmds:
-        result = subprocess.run(cmd, cwd=SCRIPT_DIR, capture_output=True, text=True)
-        print(result.stdout.strip() or result.stderr.strip())
+        result = subprocess.run(cmd, cwd=SCRIPT_DIR, capture_output=True, text=True, encoding="utf-8", errors="replace")
+        out = (result.stdout or "").strip()
+        err = (result.stderr or "").strip()
+        if out or err:
+            print(out or err)
 
 
 def main():
