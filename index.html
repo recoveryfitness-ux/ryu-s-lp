@@ -288,9 +288,9 @@
       .hero-badges { gap: 8px; flex-wrap: nowrap; }
       .cred-badge { width: auto; flex: 1 1 0; min-width: 0; padding: 10px 4px 12px; border-radius: 10px; }
       .cred-badge .cred-top-label { font-size: 9px; margin-bottom: 6px; letter-spacing: 0; }
-      .cred-badge .cred-num { font-size: 36px; }
-      .cred-badge .cred-num small { font-size: 12px !important; }
-      .cred-wreath-l, .cred-wreath-r { width: 18px; height: auto; }
+      .cred-badge .cred-num { font-size: 28px; }
+      .cred-badge .cred-num small { font-size: 10px !important; }
+      .cred-wreath-l, .cred-wreath-r { width: 14px; height: auto; }
     }
 
     .sos-section {
@@ -470,6 +470,8 @@
     /* ─── SECTION BASE ─── */
     section { padding: 72px 24px; }
     .container { max-width: 900px; margin: 0 auto; }
+    .br-mobile { display: none; }
+    @media (max-width: 600px) { .br-mobile { display: block; } }
     .section-label {
       display: inline-block;
       color: var(--teal); font-size: 12px; font-weight: 700;
@@ -929,6 +931,10 @@
     .rec-name { font-size: 16px; font-weight: 700; color: var(--navy); }
     .rec-role { font-size: 11px; color: var(--teal); font-weight: 600; }
     .rec-card p { font-size: 13px; line-height: 1.85; color: #3d2f32; }
+    .rec-body { overflow: hidden; transition: max-height .3s ease; }
+    .rec-body.collapsed { max-height: calc(13px * 1.85 * 4); }
+    .rec-more-btn { display: none; background: none; border: none; color: var(--teal); font-size: 12px; font-weight: 700; cursor: pointer; padding: 6px 0 0; text-decoration: underline; }
+    .rec-more-btn.visible { display: inline-block; }
 
     /* ─── PROGRAM ─── */
     .program-flow {
@@ -1961,7 +1967,7 @@
 <!-- ─── FEATURES ─── -->
 <section class="features">
   <div class="container">
-    <p class="section-label">「もう治らない」と諦める前に</p>
+    <p class="section-label" style="font-size:17px; letter-spacing:.04em; text-transform:none;">「もう治らない」と諦める前に</p>
     <h2>RYU-Sが選ばれる<em>4つの特徴</em></h2>
 
     <div class="features-grid">
@@ -1977,12 +1983,12 @@
       </div>
       <div class="feature-card">
         <img loading="lazy" decoding="async" src="./images/trainer-kori-wide.jpg" alt="郡隆二｜21年・1,000名超を導いた経験豊富なトレーナー" class="feature-photo">
-        <h3>22年・1,000名超を導いた経験豊富なトレーナーが、すべて担当</h3>
+        <h3>22年・1,000名超を導いた<span class="br-mobile"></span>経験豊富なトレーナーが、すべて担当</h3>
         <p>エグゼクティブ・芸能関係者・スポーツ選手まで、1,000名以上を指導してきた経験豊富なトレーナーが、初回から継続まで完全1対1で担当。コンラッド東京・エスフォルタ六本木で磨いた、一流の指導品質をそのまま立川で。</p>
       </div>
       <div class="feature-card">
         <img loading="lazy" decoding="async" src="./images/dressing-room.jpg" alt="誰もが気持ちよく過ごせる空間" class="feature-photo">
-        <h3>誰もが気持ちよく過ごせる空間＆一流のホスピタリティ</h3>
+        <h3>誰もが気持ちよく過ごせる<span class="br-mobile"></span>空間＆一流のホスピタリティ</h3>
         <p>プライベートな完全個室。ウェア・アロマおしぼり・炭酸水・アメニティすべて無料。仕事帰り・買い物帰り、スーツのままで。一流ホテル品質の接遇を、立川で。</p>
       </div>
     </div>
@@ -2117,7 +2123,7 @@
 <section class="recommend" style="background:var(--bg);">
   <div class="container">
     <p class="section-label">推薦者からのメッセージ</p>
-    <h2>各界のプロが語る、<em>RYU-Sという選択</em></h2>
+    <h2>各界のプロも信頼する、<em>確かな実績</em></h2>
 
     <div class="cards-slider rec-slider">
       <button class="cards-slider-nav cards-slider-prev" type="button" aria-label="前へ">‹</button>
@@ -2134,7 +2140,8 @@
             <p class="rec-role">フィットネスイベント共同主催</p>
           </div>
         </div>
-        <p>彼が手がけるRYU-Sは「鍛える」常識を覆し「巡らせて整える」本質にフォーカスしています。加圧・血流・仙骨への3方向アプローチを30分で完結させる設計は、忙しい現代人に理想的。一時的な癒しではなく「一生モノの身体」を手に入れたい全ての方に、自信を持って推薦します。</p>
+        <p class="rec-body collapsed">彼が手がけるRYU-Sは「鍛える」常識を覆し「巡らせて整える」本質にフォーカスしています。加圧・血流・仙骨への3方向アプローチを30分で完結させる設計は、忙しい現代人に理想的。一時的な癒しではなく「一生モノの身体」を手に入れたい全ての方に、自信を持って推薦します。</p>
+        <button class="rec-more-btn">続きを読む ▼</button>
       </div>
 
       <div class="rec-card">
@@ -2148,7 +2155,8 @@
             <p class="rec-role">2009年からのご縁</p>
           </div>
         </div>
-        <p>RYU-Sは「鍛える」常識を覆し「巡らせて整える」本質にフォーカスしています。加圧・血流・仙骨への3方向アプローチを30分で完結させる設計は、忙しい現代人に理想的。手ぶらで通える完全貸切空間でのAIによる可視化は、まさに次世代のリカバリーです。確かな実績と先見性を持つ経験豊富なトレーナー・郡氏を、私は自信を持って推薦します。</p>
+        <p class="rec-body collapsed">RYU-Sは「鍛える」常識を覆し「巡らせて整える」本質にフォーカスしています。加圧・血流・仙骨への3方向アプローチを30分で完結させる設計は、忙しい現代人に理想的。手ぶらで通える完全貸切空間でのAIによる可視化は、まさに次世代のリカバリーです。確かな実績と先見性を持つ経験豊富なトレーナー・郡氏を、私は自信を持って推薦します。</p>
+        <button class="rec-more-btn">続きを読む ▼</button>
       </div>
 
       <div class="rec-card" id="rec-umakoshi">
@@ -2162,7 +2170,8 @@
             <p class="rec-role">小学校時代からの剣道仲間</p>
           </div>
         </div>
-        <p>小学校時代の剣道仲間である郡代表は、当時から温かく熱心な人柄で、今では大学の講義を依頼し、その素晴らしい構成と話力に厚い信頼を置くパートナーです。日常の常識に囚われない鋭い着眼点を持ち、ゼロから挑戦し続ける姿には私自身いつも大きな刺激を受けています。それでいて決してブレない確固たる自分軸とビジョンを持つ経営者です。大学で健康スポーツを教える専門家としても、彼が提案する他にはない「リカバリーする健康的な習慣化」の価値を強く確信しており、心から推薦します。</p>
+        <p class="rec-body collapsed">小学校時代の剣道仲間である郡代表は、当時から温かく熱心な人柄で、今では大学の講義を依頼し、その素晴らしい構成と話力に厚い信頼を置くパートナーです。日常の常識に囚われない鋭い着眼点を持ち、ゼロから挑戦し続ける姿には私自身いつも大きな刺激を受けています。それでいて決してブレない確固たる自分軸とビジョンを持つ経営者です。大学で健康スポーツを教える専門家としても、彼が提案する他にはない「リカバリーする健康的な習慣化」の価値を強く確信しており、心から推薦します。</p>
+        <button class="rec-more-btn">続きを読む ▼</button>
       </div>
 
       <div class="rec-card">
@@ -2176,7 +2185,8 @@
             <p class="rec-role">7年来のご利用</p>
           </div>
         </div>
-        <p>40代を過ぎ、疲れや睡眠の質の低下に悩んでいましたが、個々の身体の癖を的確に見抜くオーダーメイドの指導により、内側から巡りが整うのを実感しています。特にホルモンバランスの変化に揺らぐ女性にこそ、仕事も趣味も「あともう少し」を笑顔で楽しめる身体作りを体感してほしいです。確かな安心感と納得感があり、自分も周りも幸せになれる場所として心から推薦します。</p>
+        <p class="rec-body collapsed">40代を過ぎ、疲れや睡眠の質の低下に悩んでいましたが、個々の身体の癖を的確に見抜くオーダーメイドの指導により、内側から巡りが整うのを実感しています。特にホルモンバランスの変化に揺らぐ女性にこそ、仕事も趣味も「あともう少し」を笑顔で楽しめる身体作りを体感してほしいです。確かな安心感と納得感があり、自分も周りも幸せになれる場所として心から推薦します。</p>
+        <button class="rec-more-btn">続きを読む ▼</button>
       </div>
       </div>
       <div class="cards-slider-dots"></div>
@@ -2189,7 +2199,7 @@
   <div class="container" style="max-width:480px;">
     <div class="trial-cta-card">
       <p class="trial-cta-title"><em>「もう治らない」</em>と<br>諦める前に。</p>
-      <p class="trial-cta-sub">まずは1回、RYU-Sで<br>身体の変化を体感してください。</p>
+      <p class="trial-cta-sub">まずは1度、RYU-Sで<br>身体の変化を体感してください。</p>
       <p class="trial-promise">無理な勧誘は<em>一切しません</em></p>
       <a href="#form" class="btn-trial">
         <span class="btn-trial-badge">30秒でかんたん予約</span>
@@ -2235,7 +2245,7 @@
           <span class="price-menu-toggle" aria-hidden="true">▼</span>
         </div>
         <div class="price-menu-body">
-          <p class="price-menu-desc">10・20・30枚から選択。「スケジュールが組みにくい生活をしている」「1つのプログラムを集中して受けたい」「自分のペースで継続したい」方へ。</p>
+          <p class="price-menu-desc">「スケジュールが組みにくい生活をしている」「1つのプログラムを集中して受けたい」「自分のペースで継続したい」方へ。</p>
           <p class="price-menu-amount">¥2680<small>〜/枚</small></p>
         </div>
         <div class="price-menu-detail" id="detail-tickets" hidden>
@@ -2302,7 +2312,7 @@
         </div>
         <div class="price-menu-detail" id="detail-total" hidden>
           <div style="text-align:center; margin-bottom:20px; padding:14px 16px; border:2px solid #dc2626; border-radius:10px; background:#fff5f5;">
-            <p style="color:#dc2626; font-size:13px; font-weight:900; letter-spacing:.08em; margin-bottom:8px;">秋のからだ『ふわッと』軽快スタートキャンペーン｜〜10/31（土）まで</p>
+            <p style="color:#dc2626; font-size:13px; font-weight:900; letter-spacing:.08em; margin-bottom:8px;">【10名限定】入会キャンペーン</p>
             <p style="color:#dc2626; font-size:15px; font-weight:900; line-height:1.6; margin-bottom:6px;">
               ＼ 驚愕の3大入会特典 ／<br>
               入会金 <span style="font-size:18px;">¥55000</span> → <span style="font-size:20px;">0円</span>　／　登録手数料 <span style="font-size:18px;">¥5500</span> → <span style="font-size:20px;">0円</span>
@@ -2593,25 +2603,13 @@
 
       <li class="info-item">
         <button class="info-head" type="button" aria-expanded="false">
-          <span class="info-date">2026.10.21</span>
+          <span class="info-date">2026.11.01</span>
           <span class="info-tag is-event">CAMPAIGN</span>
-          <span class="info-headline">入会キャンペーン　残り4名</span>
+          <span class="info-headline">【10名限定】入会キャンペーンをスタート</span>
           <span class="info-toggle" aria-hidden="true">▼</span>
         </button>
         <div class="info-body" hidden>
-          <p class="info-desc">入会金・事務手数料が0円！（60,500円分）さらに会費の永久15％割引をしています。<br>期間限定10/31（土）までの特別キャンペーンです。<br>キャンペーン終了前に、まずは無料体験でお試しください。</p>
-          <a href="#form" class="info-link">無料体験を予約する →</a>
-        </div>
-      </li>
-      <li class="info-item">
-        <button class="info-head" type="button" aria-expanded="false">
-          <span class="info-date">2026.10.01</span>
-          <span class="info-tag is-event">CAMPAIGN</span>
-          <span class="info-headline">秋のからだ「ふわッと」軽快スタートキャンペーン</span>
-          <span class="info-toggle" aria-hidden="true">▼</span>
-        </button>
-        <div class="info-body" hidden>
-          <p class="info-desc">季節の変わり目の「だるさ・重さ」を、骨格と血流から根本改善しませんか？<br>入会金・事務手数料が0円！さらに会費の永久15％割引をしています。<br>期間限定10/31（土）までの特別キャンペーンです。<br>キャンペーン終了前に、まずは無料体験でお試しください。</p>
+          <p class="info-desc">季節の変わり目の「だるさ・重さ」を、骨格と血流から根本改善しませんか？<br>入会金・事務手数料が0円！さらに会費の永久15％割引をしています。<br>先着10名の特別キャンペーンです。<br>キャンペーン終了前に、まずは無料体験でお試しください。</p>
           <a href="#form" class="info-link">無料体験を予約する →</a>
         </div>
       </li>
@@ -2858,6 +2856,17 @@
   window.addEventListener('scroll', () => {
     const floatCta = document.querySelector('.float-cta');
     floatCta.style.display = window.scrollY > 400 ? 'block' : 'none';
+  });
+
+  // 推薦文「続きを読む」
+  document.querySelectorAll('.rec-more-btn').forEach(btn => {
+    const body = btn.previousElementSibling;
+    if (body.scrollHeight <= body.clientHeight + 2) return;
+    btn.classList.add('visible');
+    btn.addEventListener('click', () => {
+      const collapsed = body.classList.toggle('collapsed');
+      btn.textContent = collapsed ? '続きを読む ▼' : '閉じる ▲';
+    });
   });
 
   // Instagram slider with auto-rotate
