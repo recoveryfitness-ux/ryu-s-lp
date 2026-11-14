@@ -328,41 +328,6 @@
       .sos-title em { font-size: 24px; }
       .sos-list li { font-size: 13px; }
     }
-    .anshin-block { margin-top: 20px; text-align: center; }
-    .anshin-biz {
-      font-size: 11px; color: var(--gray); letter-spacing: .1em;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .anshin-biz::before, .anshin-biz::after {
-      content: ''; display: inline-block; width: 36px; height: 1px;
-      background: var(--gray); opacity: .5;
-    }
-    .anshin-heading {
-      font-size: 22px; font-weight: 700; color: var(--navy);
-      line-height: 1.2; margin: 4px 0 14px;
-    }
-    .anshin-num {
-      font-size: 52px; font-weight: 900; color: #f5a623;
-      line-height: 1; display: inline-block; vertical-align: bottom;
-    }
-    .anshin-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-    .anshin-list li {
-      display: flex; align-items: center; gap: 12px;
-      background: #fff; border: 1.5px solid #f0c080;
-      border-radius: 50px; padding: 12px 20px;
-      font-size: 14px; font-weight: 600; color: var(--navy);
-    }
-    .anshin-badge {
-      width: 28px; height: 28px; background: #f5a623; color: #fff;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 900; flex-shrink: 0;
-    }
-    .anshin-list li em { font-style: normal; color: #f5a623; font-weight: 700; }
-    @media (max-width: 600px) {
-      .anshin-num { font-size: 40px; }
-      .anshin-heading { font-size: 18px; }
-      .anshin-list li { font-size: 13px; padding: 10px 16px; }
-    }
     .campaign-box {
       display: block; text-decoration: none;
       border: 3px solid #f5a623;
@@ -1937,20 +1902,6 @@
   </div>
 </section>
 
-<section style="background:var(--bg); padding:32px 24px 40px;">
-  <div class="container">
-    <div class="anshin-block">
-      <p class="anshin-biz">RYU-Sの</p>
-      <p class="anshin-heading"><span class="anshin-num">3</span>つの<strong>安心・宣言</strong></p>
-      <ul class="anshin-list">
-        <li><span class="anshin-badge">1</span><em>「一生もの」</em>を目指す施術計画</li>
-        <li><span class="anshin-badge">2</span>契約の強要は<em>「一切しません」</em></li>
-        <li><span class="anshin-badge">3</span>安心の<em>「初回全額無料保証」</em></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- ─── SOS ─── -->
 <section class="sos-section">
   <div class="container">
@@ -1973,18 +1924,18 @@
 
     <div class="features-grid">
       <div class="feature-card">
-        <img loading="lazy" decoding="async" src="./images/kaatsu-conditioning.jpg" alt="3つのアプローチを1セッションで" class="feature-photo">
+        <img loading="lazy" decoding="async" src="./images/kaatsu-training.png" alt="3つのアプローチを1セッションで" class="feature-photo">
         <h3>「鍛え・整え・巡らせる」を1セッションで</h3>
         <p>加圧トレーニング×仙骨整体×血管整体の3アプローチを1回で完結。整体・ジム・サロンに別々に通う手間も費用もなく、肩こり・腰痛・膝痛・頭痛を根本から整えます。</p>
       </div>
       <div class="feature-card">
         <img loading="lazy" decoding="async" src="./images/counseling-wide.jpg" alt="整体・ジムで変わらなかった人へ" class="feature-photo">
-        <h3>対症療法ではなく、動いて"ふわッ"と軽くなるオリジナルメソッド</h3>
-        <p>対症療法ではなく、「血流・骨格・体幹」の3層構造アプローチで同時に整える独自プログラム。「ケアにお金も時間もかけてきたのに変わらなかった」方が、変化を実感しています。</p>
+        <h3>動いて"ふわッ"と軽くなるオリジナルメソッド</h3>
+        <p>対症療法ではなく、「体幹・仙骨・血管」の3層構造アプローチで同時に整える独自プログラム。「ケアにお金も時間もかけてきたのに変わらなかった」方が、変化を実感しています。</p>
       </div>
       <div class="feature-card">
         <img loading="lazy" decoding="async" src="./images/trainer-kori-wide.jpg" alt="郡隆二｜21年・1,000名超を導いた経験豊富なトレーナー" class="feature-photo">
-        <h3>22年・1,000名超を導いた<span class="br-mobile"></span>経験豊富なトレーナーが、すべて担当</h3>
+        <h3>22年・1,000名超を導いた<span class="br-mobile"></span>経験豊富なトレーナー</h3>
         <p>エグゼクティブ・芸能関係者・スポーツ選手まで、3万件以上を指導してきた経験豊富なトレーナーが、初回から継続まで完全1対1で担当。コンラッド東京・エスフォルタ六本木で磨いた、一流の指導品質をそのまま立川で。</p>
       </div>
       <div class="feature-card">
@@ -2005,7 +1956,7 @@
     <div class="method-stack">
       <article class="method">
         <div class="method-num">01</div>
-        <img class="method-photo" src="./images/personal-training.jpg" alt="加圧トレーニング">
+        <img class="method-photo" src="./images/kaatsu-training.png" alt="加圧トレーニング">
         <div class="method-body">
           <h3>加圧トレーニング<span>— 鍛える</span></h3>
           <p class="method-lead">丁寧にカウンセリング、過去から現在の状況を踏まえ、<strong>一人ひとりの目標に応じたオリジナルメニュー</strong>を作成。パーソナルだからできる<strong>最短で最適なトレーニング</strong>です。</p>
@@ -2101,7 +2052,7 @@
             <td>経験豊富なトレーナーが初回〜継続まで担当</td>
             <td class="ng">△ 担当が毎回変わることも</td>
             <td class="ng">△ 若手スタッフ中心</td>
-            <td class="ok highlight-col">◎ 経験豊富なトレーナー（21年・1,000名超）が一貫指導</td>
+            <td class="ok highlight-col">◎ 経験豊富なトレーナー（22年・3万件以上）が一貫指導</td>
           </tr>
         </tbody>
       </table>
