@@ -178,8 +178,9 @@
       line-height: 1.3;
     }
     .site-header .logo span { display: block; font-size: 10px; opacity: .7; font-weight: 400; letter-spacing: .08em; color: var(--gray); }
+    .site-header .logo .logo-name { display: block; font-size: 13px; font-weight: 700; opacity: 1; color: var(--navy); letter-spacing: .04em; }
     @media (max-width: 480px) {
-      .site-header .logo span:first-child { display: none; }
+      .logo-name { display: none !important; }
     }
     .header-cta {
       background: var(--gold); color: var(--white);
@@ -1826,7 +1827,7 @@
 <header class="site-header">
   <div class="logo">
     <span style="display:block; font-size:9px; font-weight:700; letter-spacing:.1em; color:var(--gray); margin-bottom:1px;">整体×パーソナル</span>
-    Recovery Fitness RYU-S
+    <span class="logo-name">Recovery Fitness RYU-S</span>
     <span>立川店｜JR立川駅南口 徒歩5分</span>
   </div>
   <a href="#access" class="header-cta">アクセス・電話番号</a>
