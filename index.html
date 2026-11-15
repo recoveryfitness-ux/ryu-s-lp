@@ -1822,6 +1822,16 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yraqwyxo0q");
   </script>
+
+  <!-- ResizeObserver loop エラー無害化（hacomono widget.js 由来） -->
+  <script>
+    window.addEventListener('error', function(e) {
+      if (e.message && e.message.includes('ResizeObserver')) {
+        e.stopImmediatePropagation();
+        return true;
+      }
+    }, true);
+  </script>
 </head>
 <body>
 
